@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col-md-6 m-auto">
+        {% if message %}
+            {{ message }}
+        {% else %}
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">From Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for application in applications %}
+              <tr>
+                <td>{{ application.user }}</td>
+                <td>{{ application.from_date }}</td>
+                <td>{{ application.to_date }}</td>
+                <td>
+                    <a href="{% url 'application_evaluation' 1 application.id %}"><button type="submit" class="btn btn-success">Accept</button></a>
+                    <a href="{% url 'application_evaluation' 0 application.id %}"><button type="submit" class="btn btn-danger">Reject</button></a> 
+                </td>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% endif %}
+    </div>
+{% endblock %}

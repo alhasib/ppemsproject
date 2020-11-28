@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col-md-6">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button type = "submit" class="btn btn-primary mt-3">Apply</button>
+        </form>    
+    </div>
+{% endblock %}

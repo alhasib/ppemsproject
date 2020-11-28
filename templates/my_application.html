@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 m-auto">
+    <button class="btn btn-success">Accepted</button>
+    <button class="btn btn-danger">Rejected</button>
+    <button class="btn btn-warning">Pending</button>
+
+
+    <table class="table table-bordered mt-5">
+        <thead>
+          <tr>
+            <th scope="col">From Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Cause Of Leave</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+            {% for application in my_application %}
+          <tr {% if application.status == 1 %} class="btn-success" {% elif application.checked_in == 0 %} class="btn-warning" {% else %} class="btn-danger" {% endif %}
+         %}>
+            <td>{{ application.from_date }}</td>
+            <td>{{ application.to_date }}</td>
+            <td>{{ application.cause_of_leave }}</td>
+
+
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock %}
