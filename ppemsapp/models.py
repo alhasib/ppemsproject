@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Profile(models.Model):
@@ -9,13 +9,13 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.user)
-    
+
     def imgurl(self):
         try:
-            image = self.profile_image.url 
+            image = self.profile_image.url
         except:
             image = ''
-        return image  
+        return image
 
 class Department(models.Model):
     name = models.CharField(max_length = 250)
@@ -24,7 +24,7 @@ class Department(models.Model):
     access_number = models.CharField(max_length = 250, blank=True, null=True)
 
     def __str__(self):
-        return self.name 
+        return self.name
 
 class DailyTask(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)

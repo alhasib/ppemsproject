@@ -1,7 +1,8 @@
 
-from django import forms 
+from django import forms
 from django.contrib.auth.models import User, Group
-from .models import * 
+from .models import *
+
 # class UserForm(forms.ModelForm):
 #     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-group col-md-3  bg-light'}))
 #     roll = forms.ModelChoiceField(widget=forms.Select(attrs={'class':'form-control bg-light'}), queryset=Group.objects.all())
@@ -51,7 +52,7 @@ class UserLoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control col-md-6 bg-light'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control col-md-6 bg-light', 'placeholder':"Enter Password..."}))
 
-    
+
 class DailyTaskForm(forms.ModelForm):
     class Meta:
         model = DailyTask
@@ -76,3 +77,9 @@ class LeaveForm(forms.ModelForm):
             'to_date':forms.DateInput(attrs={'type': 'date', 'class':'form-control datepicker'}),
             'cause_of_leave':forms.Textarea(attrs={'class':'form-control'})
         }
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_image']

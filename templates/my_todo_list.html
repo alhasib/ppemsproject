@@ -22,7 +22,7 @@
           <table class="table table-bordered">
             <thead>
                 <tr>
-                  
+
                   <th scope="col">Add To List</th>
                 </tr>
               </thead>
@@ -45,17 +45,17 @@
         <div class = 'col-md-3'>
             <table class="table table-bordered">
                 <thead>
-                  <tr>                    
+                  <tr>
                     <th scope="col">Pending <span style = 'color:green'>( {{ pending_todo_list.count }} )</span></th>
                   </tr>
                 </thead>
                 <tbody>
                     {% for pending_list in pending_todo_list %}
                         <tr>
-                          
+
                             <td>{{ pending_list.what_to_do }}</td>
                             <td><a href="{% url 'move_todo_list' pending_list.id 'working' %}"><button class="btn btn-info">Working</button></a></td>
-                            
+
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -66,7 +66,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                          
+
                           <th scope="col">Pending <span style = 'color:red'> ( 0 )</span></th>
                         </tr>
                       </thead>
@@ -79,18 +79,18 @@
             <table class="table table-bordered">
                 <thead>
                   <tr>
-                    
+
                     <th scope="col">Working <span style = 'color:yellowgreen'>( {{ working_todo_list.count }} )</span></th>
                   </tr>
                 </thead>
                 <tbody>
                     {% for working_list in working_todo_list %}
                         <tr>
-                            
+
                             <td>{{ working_list.what_to_do }}</td>
                             <td><a href="{% url 'move_todo_list' working_list.id 'done' %}"><button class="btn btn-info">Done</button></a></td>
-                            
-                            
+
+
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -101,7 +101,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                          
+
                           <th scope="col">Doing <span style = 'color:red'> ( 0 )</span></th>
                         </tr>
                       </thead>
@@ -115,17 +115,17 @@
             <table class="table table-bordered">
                 <thead>
                   <tr>
-                    
+
                     <th scope="col">Done<span style = 'color:blueviolet'>( {{ done_todo_list.count }} )</span></th>
                   </tr>
                 </thead>
-                
+
                 <tbody>
                     {% for done_list in done_todo_list %}
                         <tr>
-                            
+
                             <td>{{ done_list.what_to_do }}</td>
-                            
+
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -136,7 +136,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                          
+
                           <th scope="col">Done<span style = 'color:red'> ( 0 )</span></th>
                         </tr>
                       </thead>
@@ -144,9 +144,9 @@
             </div>
         {% endif %}
 
-        
+
     </div>
 
-    
+
 
 {% endblock %}
