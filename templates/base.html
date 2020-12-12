@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'base/icons/favicon.ico' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -42,6 +43,11 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'applications' %}">Applications</a>
             </li>
+            <form action = {% url 'search_profile' %} method='POST' class="form-inline my-2 my-lg-0">
+              {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" name = 'Search' placeholder="Search" aria-label="Search" required>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
             {% endif %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'user_logout' %}">LogOut</a>

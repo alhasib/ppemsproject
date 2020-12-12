@@ -83,3 +83,8 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['profile_image']
+        
+
+class ChangePasswordForm(forms.Form):
+    old_passowrd = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control col-md-6 bg-light', 'placeholder':"Enter Password..."}))
+    new_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control col-md-6 bg-light', 'placeholder':"Enter Password..."}))

@@ -1,8 +1,30 @@
 from .views import * 
 from django.urls import path
+from django.contrib.auth import views as auth_view
+
+
 
 urlpatterns = [
     path('', my_todolist, name='my_todolist'),
+    path('menus', menu, name='menu'),
+    path('email-sending', email_sending, name='email_sending'),
+    path('forget-password', forget_password, name='forget_password'),
+    path('search-profile', search_profile, name='search_profile'),
+    
+
+    path('change-password', change_passaword, name='change_passaword'),
+
+
+
+
+    # path('abc', abc, name='abc'),
+
+    path('accounts/reset_password', auth_view.PasswordResetView.as_view(), name = 'password_reset'),
+    path('reset_password_sent', auth_view.PasswordResetDoneView.as_view(), name = 'password_reset_done'),
+    path('reset/<uidb64>/<token>', auth_view.PasswordResetConfirmView.as_view(), name = 'password_reset_confirm'),
+    path('reset_password_complete',auth_view.PasswordResetCompleteView.as_view(), name = 'password_reset_complete'),
+
+
     path('all', all, name='all'),
     path('add-employee', add_employee, name='add_employee'),
     path('edit-profile', edit_profile, name='edit_profile'),

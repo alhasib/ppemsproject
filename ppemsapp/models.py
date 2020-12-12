@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     department = models.CharField(max_length = 250)
@@ -57,6 +58,14 @@ class TodoList(models.Model):
     done_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.user) 
+        return str(self.user)
 
 
+class Menu(models.Model):
+    name = models.CharField(max_length = 250)
+    link = models.CharField(max_length = 250)
+
+class Token(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=250)
+    used_status = models.BooleanField(default=False)
